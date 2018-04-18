@@ -1,0 +1,100 @@
+/****** Object:  Table [dbo].[XBoxInformation]    Script Date: 4/16/2018 6:28:00 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[XBoxInformation](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [varchar](100) NULL,
+	[Description] [varchar](1000) NULL,
+	[Rating] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_UpdateXBoxInformation]    Script Date: 4/16/2018 6:28:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[sp_UpdateXBoxInformation]
+	@id int,
+	@rating int ,
+	@description varchar(1000)
+AS
+	update XBoxInformation set Rating = @rating, Description = @description where id = @id
+
+/****** Object:  StoredProcedure [dbo].[sp_SelectByRating]    Script Date: 4/16/2018 6:28:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[sp_SelectByRating]
+	@rating int 
+AS
+	SELECT * from XBoxInformation where Rating = @rating
+
+
+
+CREATE PROCEDURE [dbo].[sp_SelectAllXBoxInformation]
+	
+AS
+select * from XBoxInformation
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Skippy VS Flipper','This game allows you to find out who the better fighter is Skippy or Flipper',4)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('How to cheat at Cricket','This game shows you how to best use sand paper and make sure the umpires do not see it',3)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Chewbacca Strikes Back The Empire','In this game you use Chewbacca to fight the evil empire',5)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Karate Kid Ten','Find out who is the best karate kid on the block',5)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Australian Basket Ball','Australian Basket Ball Game',3)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Ice Skating (Tony Harding Edition)','In this game you play a ice skater and you need to make sure your not beaten up by Tonya Harding',2)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Australian Commonwealth Games','Pick a country and see how many medals you can win',1)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Coach Soccer World Cup','Become a world cup soccer coach and take your team to glory',2)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('IPL Cricket','Play in the Indian IPL cricket world',5)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Mortal Combat 10','Fight to win the competition',1)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Donkey Kong','A game where you have to rescue the princess from the monkey',4)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('PackMan','Get as many points but watch out of Pacman ',3)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Grand Bicycle Theft','You play a young lad on the mean streets of Berverly Hills. Steal as many bikes as possible',2)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Dungeons and Dragons','Pick your favourite character and make it to the top',2)
+
+insert into XBoxInformation(Title, Description, Rating) 
+values ('Delta Team One','Become a navy seal and fight lots of battles',5)
+
